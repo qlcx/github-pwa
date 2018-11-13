@@ -8,13 +8,16 @@
         <el-input v-model="form.secret"></el-input>
       </el-form-item>
       <el-form-item>
-        <el-button type="primary">login</el-button>
+        <el-button type="primary" @click="login">login</el-button>
       </el-form-item>
     </el-form>
   </div>
 </template>
 
 <script>
+// import fetch from '@/api/fetch';
+import axios from 'axios';
+
 export default {
   name: 'login',
   data() {
@@ -23,6 +26,13 @@ export default {
         id: '',
         secret: ''
       }
+    }
+  },
+  methods: {
+    login() {
+      axios('get', `/api/users/whatever?client_id=${this.form.id}&client_secret=${this.form.secret}`).then((res) => {
+        console.log(res);
+      })
     }
   }
 };
