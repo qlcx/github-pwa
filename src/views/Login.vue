@@ -26,13 +26,13 @@ export default {
         id: '',
         secret: ''
       }
-    }
+    };
   },
   methods: {
     login() {
-      axios('get', `/api/users/whatever?client_id=${this.form.id}&client_secret=${this.form.secret}`).then((res) => {
+      axios.get(`/api/users/whatever?client_id=${this.form.id}&client_secret=${this.form.secret}`).then((res) => {
         console.log(res);
-      })
+      });
     }
   }
 };
@@ -41,4 +41,3 @@ export default {
 <style lang="scss" module>
 
 </style>
-
