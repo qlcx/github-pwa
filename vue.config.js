@@ -2,8 +2,8 @@ module.exports = {
   devServer: {
     proxy: {
       '/api': {
-        target: 'https://api.github.com',
-        pathRewrite: {'^/api': ''},
+        target: 'http://localhost:8080',
+        pathRewrite: { '^/api': '' },
         changeOrigin: true
       }
     }

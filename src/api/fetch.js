@@ -16,6 +16,7 @@ Axios.interceptors.request.use(
       message: error && error.data.error.message,
       type: 'error'
     });
+    console.log(error);
     return Promise.reject(error.data.error.message);
   }
 );

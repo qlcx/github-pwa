@@ -15,8 +15,8 @@
 </template>
 
 <script>
-// import fetch from '@/api/fetch';
 import axios from 'axios';
+// import fetch from '@/api/fetch';
 
 export default {
   name: 'login',
@@ -30,8 +30,9 @@ export default {
   },
   methods: {
     login() {
-      axios.get(`/api/users/whatever?client_id=${this.form.id}&client_secret=${this.form.secret}`).then((res) => {
+      axios.post('/api/login').then((res) => {
         console.log(res);
+        this.$router.push('/')
       });
     }
   }
