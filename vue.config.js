@@ -6,6 +6,7 @@ module.exports = {
         pathRewrite: { '^/api': '' },
         changeOrigin: true
       }
-    }
+    },
+    port: 8888
   }
 };

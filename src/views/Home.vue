@@ -6,6 +6,7 @@
           :class="$style.input"
           size="small"
           v-model="searchText"
+          :fetch-suggestions="querySearch"
           placeholder="请输入内容">
         </el-autocomplete>
         <el-button
@@ -23,6 +24,8 @@
 </template>
 
 <script>
+import axios from 'axios';
+
 export default {
   name: 'home',
   components: {
@@ -30,6 +33,17 @@ export default {
   data() {
     return {
       searchText: ''
+    }
+  },
+  methods: {
+    querySearch(queryString, cb) {
+      this.timer && clearTimeout(this.timer);
+      this.timer = setTimeout(() => {
+        axios.get(`/api/search?repos=${queryString}`).then((res) => {
+          console.log(res);
+          cb([{ value: 'asdf' }])
+        });
+      }, 2000);
     }
   }
 };
